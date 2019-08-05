@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Album Reveal</string>
+    <string name="search">search</string>
+
+    <string name="no_data">no data</string>
+    <string name="tracks">tracks</string>
+    <string name="dash">-</string>
+    <string name="no_internet_connection">No internet connection</string>
+    <string name="enter_albums_title">Enter album\'s title</string>
+    <string name="error_403">No server response\nPlease try again later</string>
+</resources>

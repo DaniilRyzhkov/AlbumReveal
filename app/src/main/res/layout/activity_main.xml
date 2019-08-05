@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+
+        style="@style/field_stroke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal"
+        android:padding="3.5dp">
+
+        <EditText
+            android:id="@+id/search_field"
+            style="@style/textMain"
+            android:layout_width="0dp"
+            android:lines="1"
+            android:textSize="16sp"
+            android:inputType="textShortMessage"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/enter_albums_title"
+            />
+
+        <ImageButton
+            android:id="@+id/search_button"
+            style="@style/search_button"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:src="@drawable/round_search_white_36" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/albums_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>
