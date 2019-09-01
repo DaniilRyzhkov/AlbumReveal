@@ -1,6 +1,5 @@
-package com.daniilryzhkov.albumreveal;
+package com.daniilryzhkov.albumreveal.view.adapters;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,47 +8,45 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.daniilryzhkov.albumreveal.R;
+import com.daniilryzhkov.albumreveal.retrofit.ResultModel;
+
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 /**
- * Adapter for RecyclerView in AboutAlbumActivity
+ * Adapter for RecyclerView in DetailActivity
  */
-public class TrackAdapter extends RecyclerView.Adapter<TrackAdapter.ViewHolder> {
+public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.ViewHolder> {
 
-    private Context context;
-    private List<Track> tracks;
-
-    public TrackAdapter(Context context, List<Track> tracks) {
-        this.context = context;
-        this.tracks = tracks;
-    }
+    private List<ResultModel> results = new ArrayList<>();
 
     @NonNull
     @Override
-    public TrackAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_of_tracks, parent, false);
-        return new TrackAdapter.ViewHolder(view);
+    public DetailAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_of_tracks, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Track track = tracks.get(position);
-        holder.trackNumber.setText(String.valueOf(track.getTrackNumber()));
-        holder.trackName.setText(track.getTrackName());
-        holder.trackArtist.setText(track.getArtistName());
-        // Some pre-release albums may not have trackTimeMillis data
-        if (track.getTrackTimeMillis() != null)
-            holder.trackDuration.setText(formatTime(track.getTrackTimeMillis()));
-        else {
-            holder.trackDuration.setText(context.getResources().getString(R.string.no_data));
-        }
+        ResultModel resultModel = results.get(position);
+        holder.trackNumber.setText(String.valueOf(resultModel.getTrackNumber()));
+        holder.trackName.setText(resultModel.getTrackName());
+        holder.trackArtist.setText(resultModel.getArtistName());
+        holder.trackDuration.setText(formatTime(resultModel.getTrackTimeMillis()));
     }
 
     @Override
     public int getItemCount() {
-        return tracks.size();
+        return results.size();
+    }
+
+    public void setList(List<ResultModel> list) {
+        results = list;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

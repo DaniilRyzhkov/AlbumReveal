@@ -1,4 +1,4 @@
-package com.daniilryzhkov.albumreveal;
+package com.daniilryzhkov.albumreveal.retrofit;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -6,16 +6,15 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
- * Response model from iTunes (collection's id search)
+ * Response model from iTunes
  */
-public class TrackResponse {
+public class ResponseModel {
 
     @SerializedName("results")
     @Expose
-    private List<Track> results;
+    private List<ResultModel> results;
 
-    public List<Track> getTracks() {
+    public List<ResultModel> getResults() {
         return results;
     }
-
 }

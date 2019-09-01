@@ -1,12 +1,16 @@
-package com.daniilryzhkov.albumreveal;
+package com.daniilryzhkov.albumreveal.retrofit;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Track list model including collection info
+ * ResultModel is a list of ResponseModel
  */
-public class Track {
+public class ResultModel {
+
+    @SerializedName("collectionId")
+    @Expose
+    private Integer collectionId;
 
     @SerializedName("artistName")
     @Expose
@@ -40,10 +44,6 @@ public class Track {
     @Expose
     private Integer trackTimeMillis;
 
-    @SerializedName("currency")
-    @Expose
-    private String currency;
-
     @SerializedName("primaryGenreName")
     @Expose
     private String primaryGenreName;
@@ -51,6 +51,10 @@ public class Track {
     @SerializedName("copyright")
     @Expose
     private String copyright;
+
+    public Integer getCollectionId() {
+        return collectionId;
+    }
 
     public String getArtistName() {
         return artistName;
@@ -82,10 +86,6 @@ public class Track {
 
     public Integer getTrackTimeMillis() {
         return trackTimeMillis;
-    }
-
-    public String getCurrency() {
-        return currency;
     }
 
     public String getPrimaryGenreName() {
