@@ -7,4 +7,5 @@
     <string name="enter_albums_title">Enter album\'s title</string>
     <string name="search_title">Search</string>
     <string name="album_logo">album logo</string>
+    <string name="network_error">Network error</string>
 </resources>
